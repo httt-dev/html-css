@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA_Compatible" content="ie=edge" />
+    <title>Bài tập 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./css/excercise_1.css" />
+  </head>
+  <body>
+    <!-- 1. Cho một hình thiết kế như này với tên gọi trong tiếng Anh là `card` áp dụng BEM để kể ra block, elements, và modifier nếu có: https://static.collectui.com/shots/2451336/daily-ui-challenge-011-large -->
+    <div class="card">
+      <div class="card__image--blue"></div>
+      <div class="card__title--blue"></div>
+
+      <div class="card__description"></div>
+      <div class="card__button--blue"></div>
+    </div>
+
+    <div class="card">
+      <div class="card__image--red"></div>
+      <div class="card__title--red"></div>
+
+      <div class="card__description"></div>
+      <div class="card__button--red"></div>
+    </div>
+
+    <!-- 2. Tạo một khối có class là `box` có độ rộng và chiều cao lần lượt là `200x300` có màu nền là `#ffa400` và chữ bất kỳ màu đen, border màu vàng, padding 10px, margin 15px bo góc 4px, chữ canh giữa. Lưu ý sử dụng đơn vị `rem` -->
+
+    <div class="box">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore, autem.
+      Eius ipsum corrupti numquam optio, delectus accusantium placeat totam
+      facere quae, culpa ut obcaecati expedita, voluptates asperiores fugit.
+      Quisquam, eveniet. Lorem ipsum dolor sit amet consectetur adipisicing
+      elit. Rerum earum sequi assumenda, quia magni delectus. Nobis at animi
+      harum mollitia ut eius ullam iure amet rem consequatur, et aut vero!
+    </div>
+    <!-- 3. Tạo một khối có đoạn chữ rất dài bât kỳ, có độ rộng tối đa là `500px` hiển thị 3 hàng kết hợp dấu 3 chấm -->
+    <div class="box--three--line--and--truncated">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore, autem.
+        Eius ipsum corrupti numquam optio, delectus accusantium placeat totam
+        facere quae, culpa ut obcaecati expedita, voluptates asperiores fugit.
+        Quisquam, eveniet. Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Rerum earum sequi assumenda, quia magni delectus. Nobis at animi
+        harum mollitia ut eius ullam iure amet rem consequatur, et aut vero!
+    </div>
+
+    <!-- 4. Tạo một khối có đoạn chữ rất dài bât kỳ, có độ rộng tối đa là `100px` hiển thị 1 hàng kết hợp dấu 3 chấm -->
+    <div class="box--one--line--and--truncated">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore, autem.
+      Eius ipsum corrupti numquam optio, delectus accusantium placeat totam
+      facere quae, culpa ut obcaecati expedita, voluptates asperiores fugit.
+      Quisquam, eveniet.
+    </div>
+    <!-- 5. Cho một hình thiết kế như này, gọi là `product` hiểu về BEM và liệt kê ra các class về block, elements, modifer nếu có: https://static.collectui.com/shots/2414184/travel-bag-detail-spare-time-fun-large -->
+    <div class="product__container">
+      <div class="product__container__carousel">
+        <div class="product__container__carousel--image"></div>
+        <div class="product__container__carousel--indicators"></div>
+      </div>
+
+      <div class="product__container__info">
+        <div class="product__container__info__title--large"></div>
+        <div class="product__container__info__price">
+          <div class="product__container__info__price--discount"></div>
+          <div class="product__container__info__price--original"></div>
+        </div>
+
+        <div class="product__container__info__description"></div>
+
+        <div class="product__container__info__size">
+          <div class="product__container__info__size--title"></div>
+          <div class="product__container__info__size--s"></div>
+          <div class="product__container__info__size--m"></div>
+          <div class="product__container__info__size--l"></div>
+          <div class="product__container__info__size--xl"></div>
+          <div class="product__container__info__size--xxl"></div>
+        </div>
+
+        <div class="product__container__info__color">
+          <div class="product__container__info__color--red"></div>
+          <div class="product__container__info__color--blue"></div>
+          <div class="product__container__info__color--orange"></div>
+        </div>
+
+        <div class="product__container__info__total">
+          <div class="product__container__info__total--title"></div>
+          <div class="product__container__info__total--quanlity"></div>
+        </div>
+
+        <div class="product__container__info__buy">
+          <div class="product__container__info__buy--button"></div>
+        </div>
+      </div>
+    </div>
+    <!-- 6. Tạo một khối có độ rộng và chiều cao lần lượt là `100vw` `100vh` cho hình nền bất kỳ, yêu cầu phủ toàn khối, canh góc bên phải, không có lặp lại -->
+    <div class="box-img">
+
+    </div>
+    <!-- 7. Tạo một khối có độ rộng và chiêu cao tương ứng là `400x400` và cho hình ảnh hiển thị bên trong, yêu cầu khối này là hình tròn, và hình ảnh nằm trọn bên trong, không được méo, không được tràn ra ngoài, gợi ý dùng `border-radius` và `overflow:hidden` -->
+    <div class="box-circle">
+      
+    </div>
+    <!-- 8. Chèn font từ Google vào bài tập sử dụng Fonts `Roboto` với các độ đậm là `400` và `600` -->
+    <!-- 9. Chỉ là yêu cầu: phải sử dụng đơn vị `rem` cho hợp lý, không sử dụng `px`, sử dụng `box-sizing` để hiển thị cho đúng kích thước -->
+  </body>
+</html>

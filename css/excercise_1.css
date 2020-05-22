@@ -1,0 +1,63 @@
+html {
+  font-size: 62.5%;
+}
+
+*,
+*:before,
+*::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.box {
+  width: 20rem;
+  height: 30rem;
+  background-color: #ffa400;
+  color: black;
+  border-color: yellow;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 15px;
+  text-align: center;
+}
+
+.box--three--line--and--truncated {
+  margin: 20px;
+  max-width: 50rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.box--one--line--and--truncated {
+  margin: 20px;
+  white-space: nowrap;
+  max-width: 10rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.box-img {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1525979371491-8bfc501b8612?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.box-circle {
+    margin: 20px;
+    width: 40rem;
+    height: 40rem;
+    overflow: hidden;
+    background-image: url("https://images.unsplash.com/photo-1525979371491-8bfc501b8612?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+    background-size: contain;
+    border-radius: 50%;
+
+}
