@@ -1,0 +1,58 @@
+:root{
+    --white-color:#fff;
+    --black-color:#000;
+    --text-color:#222222;
+}
+
+*{
+    box-sizing: inherit;
+}
+
+html{
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto' , sans-serif;
+    box-sizing: border-box;
+}
+
+.grid{
+    width: 1355px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__full-width{
+    width: 100%;
+}
+
+.grid__row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
+    
+}
+
+.grid__col-2{
+    width: 16.6667%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes growth{
+    from{
+        transform: scale(--growth-from);
+    }
+    to{
+        transform: scale(--growth-to);
+    }
+}
