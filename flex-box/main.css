@@ -1,0 +1,191 @@
+html{
+    box-sizing: border-box;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+input,
+textarea,
+select,
+button{
+    outline: none;
+}
+
+input{
+    line-height: normal;
+}
+
+label,
+button{
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+}
+
+body{
+    font-size: 16px;
+    font-family:  "Poppins", serif;
+}
+
+/* card-list */
+
+body{
+    padding: 20px;
+}
+
+.cards{
+    --spacing:25px;
+    --columns:4;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: calc(-1 * var(--spacing));
+}
+
+@media screen and (max-width:1023px) {
+    /* tablet */
+    .cards{
+        --columns :2;
+    }
+}
+
+@media screen and (max-width : 767px){
+    /* phone */
+    .cards {
+        --spacing : 15px;
+        --columns:1;
+    }
+}
+
+.card{
+    border-radius: 20px;
+    overflow: hidden;
+    background-color:white;
+    box-shadow: rgba(100, 100 , 111,0.2) 0px 7px 29px 0px;
+    width: calc(calc(100% / var(--columns)) - var(--spacing));
+    margin-left: var(--spacing);
+    margin-bottom: var(--spacing);
+}
+
+.card-image{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    /* co dinh kich thuoc */
+    flex-shrink: 0; 
+}
+
+.card-top{
+    padding: 25px;
+}
+
+.card-title{
+    font-weight: 500;
+    margin-bottom: 25px;
+    word-wrap: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+}
+
+.card-user{
+    display: flex;
+    align-items: center;
+}
+
+.card-user-avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 100rem;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.card-user-info {
+    padding-left: 20px;
+    /* chiem het phan con lai */
+    flex: 1;
+  }
+  .card-user-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+  }
+  .card-user-name {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1;
+  }
+  .card-user-top ion-icon {
+    color: #20e3b2;
+    margin-left: 5px;
+  }
+  .card-user-game {
+    color: #999;
+    font-weight: 300;
+    font-size: 13px;
+  }
+  .card-bottom {
+    padding: 25px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-live {
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    border-radius: 10px;
+    background-color: #ff6651;
+  }
+  .card-live span {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+  .card-watching {
+    font-size: 13px;
+    color: #999;
+    font-weight: 300;
+  }
+  .card-content {
+    /* chiem het phan con lai */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-top {
+    display: flex;
+    flex-direction: column;
+    /* chiem het phan con lai */
+    flex: 1;
+  }
+  .card-user,
+  .card-bottom {
+    /* day khoang trong len phia tren va don phan tu card-bottom xuong phia duoi*/
+    margin-top: auto;
+    /* co dinh kich thuoc phan tu */
+    flex-shrink: 0;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+  }

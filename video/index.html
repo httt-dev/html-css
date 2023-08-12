@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Basic interactive video with HTML5 and vanilla JavaScript</title>
+    </head>
+    <body>
+        
+        <!-- Read my blog post on interactive videos: https://mostlydevstuff.com/2018/basic-interactive-video-with-html5-and-javascript/  --> 
+    
+        <style>
+            .hide {
+                display: none;
+            }
+
+            .initial {
+                display: block;
+            }
+
+            .videos {
+                position: relative;
+                max-width: 700px;
+                height: 400px;
+                margin: 0 auto;
+            }
+
+            .videos video {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .play {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                width: 100%;
+                height: 98%;
+                padding: 0;
+                top: 0;
+                background-color: rgba(0, 0, 0, .5);
+            }
+
+            .play:hover .fil1 {
+                fill: #fff;
+            }
+
+            .menu {
+                height: 98%;
+                background-color: rgba(0, 0, 0, .5);
+            }
+
+            .menu, .menu-wrapper {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -51%);
+                width: 100%;
+                padding: 0;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .menu, .menu a {
+                color: #fff;
+            }
+
+            .menu a:hover {
+                cursor: pointer;
+            }
+
+            .menu ul li {
+                list-style-type: none;
+            }
+
+            @media only screen and (min-width: 768px) {
+                .menu ul li {
+                    display: inline-block;
+                    margin-right: 30px;
+                }
+            }
+
+            @media only screen and (max-width: 450px) {
+                .show-below-450 {
+                    display: block !important;
+                    color: red;
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+            }
+        </style>
+
+        <div class="videos">
+            <div class="active initial closing">
+                <video autoplay="autoplay" loop>
+                    <source src="/videos/video-sky.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="cat hide">
+                <video>
+                    <source src="/videos/video-cat.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="cat hide">
+                <video>
+                    <source src="/videos/video-cat-2.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="dog hide">
+                <video>
+                    <source src="/videos/video-dog.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="dog hide">
+                <video>
+                    <source src="/videos/video-dog-2.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="play">
+                <?xml version='1.0' encoding='utf-8'?><svg xmlns="http://www.w3.org/2000/svg" width="91.44mm" height="91.44mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 9144 9144"> <defs> <style type="text/css">  .fil0 {fill:#fff} .fil1 {fill:#ccc;fill-rule:nonzero}  </style> </defs> <g id="Layer_x0020_1"> <metadata id="CorelCorpID_0Corel-Layer"/> <g id="_2744492901664"><g> <path class="fil1" d="M6601 4572c0,-560 -227,-1067 -594,-1435 -368,-367 -875,-594 -1435,-594 -560,0 -1067,227 -1435,594 -367,368 -594,875 -594,1435 0,560 227,1067 594,1435 368,367 875,594 1435,594 560,0 1067,-227 1435,-594 367,-368 594,-875 594,-1435zm-2513 791l1231 -791 -1231 -792 0 1583zm1442 -717l-1478 949c-14,11 -32,17 -52,17 -49,0 -88,-39 -88,-88l0 -1905 0 0c0,-16 4,-33 14,-48 26,-40 81,-52 122,-26l1480 952 2 149zm26 -122c26,41 14,96 -26,122l26 -122zm575 -1511c399,399 646,950 646,1559 0,609 -247,1160 -646,1559 -399,399 -950,646 -1559,646 -609,0 -1160,-247 -1559,-646 -399,-399 -646,-950 -646,-1559 0,-609 247,-1160 646,-1559 399,-399 950,-646 1559,-646 609,0 1160,247 1559,646z"/></g></g></g></svg>
+                <!-- SVG courtesy of Pixabay: https://pixabay.com/en/play-icon-player-button-outline-2935460/ -->
+            </div>
+            <div class="menu hide">
+                <div class="menu-wrapper">
+                    <div class="initial hide">
+                        <h3>Hi! I bet you like animals (just like me!).</h1>
+                        <h4>The question is... are you a cat person or a dog person?</h2>
+                    </div>
+                    <div class="closing hide">
+                        <h3>I hope you enjoyed it!</h3>
+                        <h4>Would you like to choose a different option now?</h4>
+                    </div>
+                    <div class="options hide">
+                        <ul>
+                            <li><a id="cat-person">A cat person!</a></li>
+                            <li><a id="dog-person">A dog person!</a></li>
+                            <li><a href="https://twitter.com/intent/tweet?text=How to create an interactive video with %23HTML5 and %23JavaScript&via=imgersonr&url=https://mostlydevstuff.com/2018/interactive-video-with-html5-and-javascript/" target="_blank">Share demo!</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hide show-below-450 mb15">
+            <p>Please, change your phone to landscape view!</p>
+        </div>
+
+        <script>
+        window.onload = function() {
+            var videosContainer = document.getElementsByClassName("videos")[0];
+            var menu = document.getElementsByClassName("menu")[0];
+            var menuOptions = menu.getElementsByClassName("options")[0];
+
+            var playButton = document.getElementsByClassName("play")[0];
+            playButton.onclick = function() {
+                playButton.style.display = "none";
+                playInitialMenu();
+            }
+
+            var catPersonLink = document.getElementById("cat-person");
+            catPersonLink.onclick = function() {
+                showVideos(0, videosContainer.getElementsByClassName("cat"));
+            }
+
+            var dogPersonLink = document.getElementById("dog-person");
+            dogPersonLink.onclick = function() {
+                showVideos(0, videosContainer.getElementsByClassName("dog"));
+            }
+
+            function playInitialMenu() {
+                playVideo(videosContainer.getElementsByClassName("initial")[0], loop=true);
+
+                setTimeout (function () {
+                    menu.style.display = "block";
+                    menu.getElementsByClassName("initial")[0].style.display = "block";
+                    menuOptions.style.display = "block";
+                }, 1000);
+            };
+
+            function playClosingMenu() {
+                playVideo(videosContainer.getElementsByClassName("closing")[0], loop=true);
+
+                menu.getElementsByClassName("initial")[0].style.display = "none";
+
+                setTimeout (function () {
+                    menu.style.display = "block";
+                    menu.getElementsByClassName("closing")[0].style.display = "block";
+                    menuOptions.style.display = "block";
+                }, 1000);
+            };
+
+            function playVideo(videoContainer, loop=false) {
+                var lastVideoContainer = videosContainer.getElementsByClassName("active")[0];
+                lastVideoContainer.classList.remove("active");
+                lastVideoContainer.style.display = "none";
+
+                videoContainer.style.display = "block";
+                videoContainer.classList.add("active");
+
+                var video = videoContainer.getElementsByTagName("video")[0];
+                video.preload = "auto";
+                video.load();
+                video.play();
+                video.loop = loop;
+
+                return video;
+            }
+
+            function showVideos(index, videos) {
+                if (index < (videos.length - 1)) {
+                    hasNextVideo = true;
+                } else {
+                    hasNextVideo = false;
+                }
+
+                menu.style.display = "none";
+
+                var video = playVideo(videos[index]);
+
+                video.addEventListener("timeupdate", function() {
+                    var currentTime = (this.currentTime / this.duration) * 100;
+
+                    if (hasNextVideo && currentTime > 70) {
+                        nextVideo = videos[index + 1];
+                        nextVideoTag = nextVideo.getElementsByTagName("video")[0];
+                        nextVideoTag.preload = "auto";
+                    }
+                })
+
+                video.onended = function() {
+                    if (hasNextVideo) {
+                        showVideos(index+1, videos);
+                    } else {
+                        playClosingMenu();
+                    }
+                }
+            }
+        }
+        </script>
+        
+    </body>
+</html>
